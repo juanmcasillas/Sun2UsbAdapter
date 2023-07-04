@@ -7,13 +7,13 @@ connector, and how to wire it to the arduino pro micro (clone).
 [Cheap Ebay 8Pin MiniDin](https://es.aliexpress.com/item/1005004227811305.html?spm=a2g0o.order_detail.order_detail_item.4.69bd39d3pFY9NK&gatewayAdapt=glo2esp), model N8Pin (3,60€ / 5 units).
 
 <center>
-<img src="img/n8pin.jpg"></img>
+<img width="640px" src="img/n8pin.jpg"></img>
 </center>
 
 [Ardunio Micro Clone](https://www.amazon.es/ATmega32U4-Compatible-Arduino-Gen%C3%A9rica-incluidos/dp/B0C4TQM3T5/ref=sr_1_3_sspa?keywords=Arduino+Micro&qid=1688457493&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1) Any model will work.
 
 <center>
-<img src="img/arduino.jpg"></img>
+<img width="640px" src="img/arduino.jpg"></img>
 </center>
 
 ## Connector Pinout and wiring
@@ -22,7 +22,7 @@ After reverse engineer the wiring, I get the following
 table:
 
 <center>
-<img src="img/8pinconnector.png"></img>
+<img width="640px" src="img/8pinconnector.png"></img>
 </center>
 
 | **Connector PIN** | **Base PIN** | **Wiring color** | **Description** | **Arduino PIN** |
