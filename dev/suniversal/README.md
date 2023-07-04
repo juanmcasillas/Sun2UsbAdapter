@@ -1,6 +1,7 @@
 
 # *suniversal*
 
+**NOTE** This code is a standalone copy for preservation issues of [Alexander Vollschwitz's suniversal adapter](https://codeberg.org/xelalexv/suniversal). Please use his repo directly. Thanks.
 
 ## TL;DR
 
