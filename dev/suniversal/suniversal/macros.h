@@ -27,6 +27,7 @@
 #define CONTROL (USB_MOD_LCTRL << 8)
 #define ALT     (USB_MOD_LALT  << 8)
 
+
 // macro index numbers
 enum MACROS {
     MACRO_AGAIN = 0,
