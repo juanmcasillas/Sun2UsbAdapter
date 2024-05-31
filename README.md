@@ -39,4 +39,5 @@ table:
 ## Software Install
 
 See the guide on [Alexander Vollschwitz's suniversal adapter](https://codeberg.org/xelalexv/suniversal). Just download the sketch, select your board (arduino micro or leonardo) and download it. Just edit the
-`config.h` file and select your options (mine where don't use mouse, and don't debug)
+`config.h` file and select your options (mine where don't use mouse, and don't debug). NOTE (31/05/2024) I manage to map the keys to the right Windows key usage, except the
+volume mute, volume up and volume. down. To fix that, I map MUTE to F13, DOWN to F14 and UP to F15, and with the powertoys [Microsoft PowerToys](https://learn.microsoft.com/es-es/windows/powertoys/install#installing-with-microsoft-store) I start the keyboard manager, and add remaps for the F13, F14 and F15 keys to the system commands).
