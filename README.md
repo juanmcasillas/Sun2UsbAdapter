@@ -2,6 +2,9 @@
 Adapter for using Sun Keyboards (4/5/6) as USB devices, with macro support, using the excellent [Alexander Vollschwitz's suniversal adapter](https://codeberg.org/xelalexv/suniversal). This repo includes the specific pinout for the OEM 8pin
 connector, and how to wire it to the arduino pro micro (clone).
 
+** NOTE ** added support for the sun mouse without electronics. just use the `suniversal_reversed` code in the `dev` folder. The serial logic is inverted, so the mouse works properly. Uses the [AltSoftSerial](https://github.com/PaulStoffregen/AltSoftSerial) library to manage the serial port using custom ports. Check the documentation (specific pins are hardcoded in the library based on arduino's model)
+
+
 ## Parts
 
 [Cheap Ebay 8Pin MiniDin](https://es.aliexpress.com/item/1005004227811305.html?spm=a2g0o.order_detail.order_detail_item.4.69bd39d3pFY9NK&gatewayAdapt=glo2esp), model N8Pin (3,60€ / 5 units).
