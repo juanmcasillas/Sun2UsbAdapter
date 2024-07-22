@@ -60,11 +60,9 @@ static const uint16_t sun2usb[128] = {
 /*  --------------------------------------------*/
 /*  0x00                    */  0,
 /*  0x01    Stop            */  CODE_OR_MACRO(USB_STOP, MACRO_STOP),
-/*  0x02    Volume_Decr     */  USB_F14, //USB_VOLUMEDOWN use powertoys to do the work of remapping to the command
-/*  0x02    Volume_Decr     */  USB_F14, //USB_VOLUMEDOWN use powertoys to do the work of remapping to the command
+/*  0x02    Volume_Decr     */  USB_VOLUMEDOWN,
 /*  0x03    Again           */  CODE_OR_MACRO(USB_AGAIN, MACRO_AGAIN),
-/*  0x04    Volume_Incr     */  USB_F15, // USB_VOLUMEUP use powertoys to do the work of remapping to the command
-/*  0x04    Volume_Incr     */  USB_F15, // USB_VOLUMEUP use powertoys to do the work of remapping to the command
+/*  0x04    Volume_Incr     */  USB_VOLUMEUP,
 /*  0x05    F1              */  USB_F1,
 /*  0x06    F2              */  USB_F2,
 /*  0x07    F10             */  USB_F10,
@@ -73,15 +71,13 @@ static const uint16_t sun2usb[128] = {
 /*  0x0A    F4              */  USB_F4,
 /*  0x0B    F12             */  USB_F12,
 /*  0x0C    F5              */  USB_F5,
-/*  0x0D    GraphAlt        */  USB_COMPOSE, // Swapped with R-Triangle USB_MOD_RALT << 8 // reswapped with Compose USB_MOD_RMETA << 8 
-/*  0x0D    GraphAlt        */  USB_COMPOSE, // Swapped with R-Triangle USB_MOD_RALT << 8 // reswapped with Compose USB_MOD_RMETA << 8 
+/*  0x0D    GraphAlt        */  USB_MOD_RALT << 8,
 /*  0x0E    F6              */  USB_F6,
 /*  0x0F                    */  BLANK_KEY_USB_CODE,
 /*  0x10    F7              */  USB_F7,
 /*  0x11    F8              */  USB_F8,
 /*  0x12    F9              */  USB_F9,
-/*  0x13    Alt_L           */  USB_MOD_LMETA << 8, // swapped with L-Triangle USB_MOD_LALT << 8
-/*  0x13    Alt_L           */  USB_MOD_LMETA << 8, // swapped with L-Triangle USB_MOD_LALT << 8
+/*  0x13    Alt_L           */  USB_MOD_LALT << 8,
 /*  0x14    T5_Up           */  USB_UP,
 /*  0x15    Pause           */  USB_PAUSE,
 /*  0x16    Pr_Sc           */  USB_SYSRQ,
@@ -107,11 +103,10 @@ static const uint16_t sun2usb[128] = {
 /*  0x2A    ‘_~             */  USB_GRAVE,
 /*  0x2B    Backspace       */  USB_BACKSPACE,
 /*  0x2C    T5_Insert       */  USB_INSERT,
-/*  0x2D    =               */  USB_F13, // USB_MUTE use powertoys to do the work of remapping to the command
-/*  0x2D    =               */  USB_F13, // USB_MUTE use powertoys to do the work of remapping to the command
+/*  0x2D    =               */  USB_MUTE,
 /*  0x2E    /               */  USB_KPSLASH,
 /*  0x2F    *               */  USB_KPASTERISK,
-/*  0x30    Power           */  USB_F16, // USB_POWER,
+/*  0x30    Power           */  USB_POWER,
 /*  0x31    Front           */  CODE_OR_MACRO(USB_FRONT, MACRO_FRONT),
 /*  0x32    Del_.           */  USB_KPDOT,
 /*  0x33    Copy            */  CODE_OR_MACRO(USB_COPY, MACRO_COPY),
@@ -130,8 +125,7 @@ static const uint16_t sun2usb[128] = {
 /*  0x40    [_{             */  USB_LEFTBRACE,
 /*  0x41    ]_}             */  USB_RIGHTBRACE,
 /*  0x42    Delete          */  USB_DELETE,
-/*  0x43    Compose         */  USB_MOD_RMETA << 8, // Swapped with Alt-Graph  USB_COMPOSE
-/*  0x43    Compose         */  USB_MOD_RMETA << 8, // Swapped with Alt-Graph  USB_COMPOSE
+/*  0x43    Compose         */  USB_COMPOSE,
 /*  0x44    Home_7          */  USB_KP7,
 /*  0x45    up-cur_8        */  USB_KP8,
 /*  0x46    PgUp_9          */  USB_KP9,
@@ -182,14 +176,11 @@ static const uint16_t sun2usb[128] = {
 /*  0x73                    */  0,
 /*  0x74                    */  0,
 /*  0x75                    */  0,
-/*  0x76    Help            */  USB_F1,
-/*  0x76    Help            */  USB_F1,
+/*  0x76    Help            */  CODE_OR_MACRO(USB_HELP, MACRO_HELP),
 /*  0x77    CapsLock        */  USB_CAPSLOCK,
-/*  0x78    L-Triangle      */  USB_MOD_LALT << 8, // Swapped with l-alt USB_MOD_LMETA << 8
-/*  0x78    L-Triangle      */  USB_MOD_LALT << 8, // Swapped with l-alt USB_MOD_LMETA << 8
+/*  0x78    L-Triangle      */  USB_MOD_LMETA << 8,
 /*  0x79    SpaceBar        */  USB_SPACE,
-/*  0x7A    R-triangle      */  USB_MOD_RALT << 8, // Swapped with alt graph USB_MOD_RMETA << 8
-/*  0x7A    R-triangle      */  USB_MOD_RALT << 8, // Swapped with alt graph USB_MOD_RMETA << 8
+/*  0x7A    R-triangle      */  USB_MOD_RMETA << 8,
 /*  0x7B    T5_PgDn         */  USB_PAGEDOWN,
 /*  0x7C    <_>_|           */  USB_102ND,
 /*  0x7D    +               */  USB_KPPLUS,

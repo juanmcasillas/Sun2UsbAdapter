@@ -175,17 +175,9 @@ KeyboardConverter::handleKey(uint8_t sunKey, bool pressed) {
         if (USE_MACROS && handleMacro(usbKey, pressed)) {
             return;
         }
-    
-        
-    
-        
         // modifiers are in high byte, non-modifiers in low byte
         if (keyReport.handleModifier(usbKey >> 8, pressed) ||
             keyReport.handleKey(0xFF & usbKey, pressed)) {
-
-            
-
-            
             keyReport.send();
         }
     }
@@ -223,9 +215,5 @@ KeyboardConverter::releaseAll() {
     keyReport.releaseAll();
     keyReport.send();
 }
-
-
-
-
 
 KeyboardConverter keyboardConverter;

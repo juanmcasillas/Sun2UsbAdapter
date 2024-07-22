@@ -168,10 +168,6 @@
 #define USB_PASTE 0x7d // Keyboard Paste
 #define USB_FIND 0x7e // Keyboard Find
 #define USB_MUTE 0x7f // Keyboard Mute
-
-
-
-
 #define USB_VOLUMEUP 0x80 // Keyboard Volume Up
 #define USB_VOLUMEDOWN 0x81 // Keyboard Volume Down
 // 0x82  Keyboard Locking Caps Lock

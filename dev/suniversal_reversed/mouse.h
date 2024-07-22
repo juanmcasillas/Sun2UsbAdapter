@@ -1,5 +1,5 @@
 /*
-    macros - macro definitions for special keys
+    mouse handler
     Copyright (c) 2017, Alexander Vollschwitz
 
     This file is part of suniversal.
@@ -16,44 +16,34 @@
 
     You should have received a copy of the GNU General Public License
     along with suniversal. If not, see <http://www.gnu.org/licenses/>.
- */
+*/
 
-#ifndef MACROS_h
-#define MACROS_h
+#ifndef MOUSE_CONVERTER_h
+#define MOUSE_CONVERTER_h
 
 #include <stdint.h>
-#include "usb_codes.h"
 
-#define CONTROL (USB_MOD_LCTRL << 8)
-#define ALT     (USB_MOD_LALT  << 8)
+#include "usb_mouse.h"
 
-
-
-// macro index numbers
-enum MACROS {
-    MACRO_AGAIN = 0,
-    MACRO_UNDO,
-    MACRO_COPY,
-    MACRO_PASTE,
-    MACRO_CUT,
-    MACRO_STOP,
-    MACRO_PROPS,
-    MACRO_FRONT,
-    MACRO_OPEN,
-    MACRO_FIND,
-    MACRO_HELP,
-    END_OF_MACROS
-};
-
-class MacroTable {
+class MouseConverter {
 
 private:
-    uint16_t* table[END_OF_MACROS];
+    uint8_t buttonStates;
+    uint8_t buffer[5];
+    uint8_t bufferIx;
+    uint8_t frameLength;
+    bool fiveBytes;
+    flushBuffer();
+    handleScroll(uint8_t v, uint8_t h);
+    handleMove(uint8_t dx, uint8_t dy);
+    handleButtons(uint8_t state);
+    handleButton(uint8_t states, uint8_t buttonMask, char buttonId);
 
 public:
-    MacroTable();
-    adjustToLayout(uint8_t layout);
-    uint16_t* get(uint8_t ix);
+    MouseConverter();
+    update(uint8_t data);
 };
+
+extern MouseConverter mouseConverter;
 
 #endif
