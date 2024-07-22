@@ -16,7 +16,7 @@
 // written to the serial port. Additionally, power button will turn into reset
 // button for the keyboard, so it's easier to observe start up messages.
 //
-#define DEBUG true
+#define DEBUG false
 
 
 // Set whether to use the mouse (if one is plugged into the keyboard).
