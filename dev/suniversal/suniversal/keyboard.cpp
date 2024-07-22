@@ -23,7 +23,13 @@
 
 #include "config.h"
 #include "keyboard.h"
-#include "sun_to_usb.h"
+
+#if SUN_TO_WIN == true
+    #include "sun_to_usb_win.h"
+#else
+    #include "sun_to_usb.h"
+#endif
+
 #include "macros.h"
 
 MacroTable macros;

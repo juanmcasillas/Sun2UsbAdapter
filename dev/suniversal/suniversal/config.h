@@ -1,6 +1,12 @@
 #ifndef SUNIVERSAL_h
 #define SUNIVERSAL_h
 
+// Define SUN_TO_WIN if you plan to use the sun keyboard on windows
+// and map some keys to the windows functions (alt, diamond, etc)
+//
+#define SUN_TO_WIN true
+
+
 // Set whether to activate debug mode. In debug mode, diagnostic messages are
 // written to the serial port. Additionally, power button will turn into reset
 // button for the keyboard, so it's easier to observe start up messages.
