@@ -1,7 +1,10 @@
 
 # *suniversal*
 
-**NOTE** This code is a standalone copy for preservation issues of [Alexander Vollschwitz's suniversal adapter](https://codeberg.org/xelalexv/suniversal). Please use his repo directly. Thanks.
+***NOTE*** This code is a standalone copy for preservation issues of [Alexander Vollschwitz's suniversal adapter](https://codeberg.org/xelalexv/suniversal). Please use his repo directly. Thanks.  This code supports the mouse *without* added electronics, using the `altsoftserial` library with reversed serial logic. Please see `config.h` and check
+`SUN_SOFTWARE_MOUSE` variable to activate software mouse (check the arduino pro micro pinout) and `SUN_TO_WIN` if you want to use the alternate keyboard map supporting mapped
+windows keys (alt, diamond, compose, etc.)
+
 
 ## TL;DR
 

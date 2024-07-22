@@ -6,17 +6,22 @@
 //
 #define SUN_TO_WIN true
 
+// define SUN_SOFTWARE_MOUSE
+// to support inverted mouse logic (so we don't need electronics)
+
+#define SUN_SOFTWARE_MOUSE true
+
 
 // Set whether to activate debug mode. In debug mode, diagnostic messages are
 // written to the serial port. Additionally, power button will turn into reset
 // button for the keyboard, so it's easier to observe start up messages.
 //
-#define DEBUG false
+#define DEBUG true
 
 
 // Set whether to use the mouse (if one is plugged into the keyboard).
 //
-#define USE_MOUSE false
+#define USE_MOUSE true
 
 
 // Set whether to emulate a mouse scroll wheel, i.e. scroll up/down and

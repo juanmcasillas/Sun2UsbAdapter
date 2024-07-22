@@ -24,14 +24,23 @@
 */
 
 #include <SoftwareSerial.h>
-
 #include "config.h"
+
+#if SUN_SOFTWARE_MOUSE == true
+    #include "InvAltSoftSerial.h"
+#endif
+
 #include "keyboard.h"
 #include "mouse.h"
 
 // Arduino pins
 #define PIN_RX 10
 #define PIN_TX  9
+#if SUN_SOFTWARE_MOUSE == true
+    // Not actually used: hard-coded in InvAltSoftSerial
+    #define MAUS_RX 4
+    #define MAUS_TX 5
+#endif
 
 // SUN power key
 #define POWER            0x30
@@ -73,6 +82,12 @@ uint8_t ledsUSBPrev = 0;
 // for communication with the SUN keyboard
 SoftwareSerial sun(PIN_RX, PIN_TX, true);
 
+#if SUN_SOFTWARE_MOUSE == true
+    // for communication with the SUN mouse
+    InvAltSoftSerial maus(MAUS_RX, MAUS_TX, true);
+#endif
+
+
 // SNAFU flag
 bool keyboardBroken = false;
 
@@ -87,12 +102,17 @@ void setup() {
     }
 
     if (USE_MOUSE) {
+        DPRINTLN("Mouse Init");
         // mouse gets hooked to the H/W serial, which on the Pro Micro is
         // Serial1. IMPORTANT: Just like the keyboard, the mouse also uses
         // inverted serial signal, so you need an inverter in the line between
         // the mouse and RX of the Arduino, e.g. a transistor and two resistors
         // (Tx->15kOhm->B, C->Rx, 5V->10kOhm->Rx, E->GND).
-        Serial1.begin(1200, SERIAL_8N2);
+        #if SUN_SOFTWARE_MOUSE == true
+            maus.begin(1200);
+        #else
+            Serial1.begin(1200, SERIAL_8N2);
+        #endif
     }
 
     sun.begin(1200);
@@ -203,16 +223,18 @@ uint8_t getLayout() {
     return UNITED_STATES;
 }
 
-/*
-    On the Pro Micro, and a few other boards, we need to use serialEventRun
-    instead of serialEvent. See for example:
-        http://forum.arduino.cc/index.php?topic=135011.0
- */
-void serialEventRun() {
-    while (Serial1.available()) {
-        mouseConverter.update(Serial1.read());
+#if SUN_SOFTWARE_MOUSE == false
+    /*
+        On the Pro Micro, and a few other boards, we need to use serialEventRun
+        instead of serialEvent. See for example:
+            http://forum.arduino.cc/index.php?topic=135011.0
+    */
+    void serialEventRun() {
+        while (Serial1.available()) {
+            mouseConverter.update(Serial1.read());
+        }
     }
-}
+#endif
 
 void loop() {
 
@@ -265,6 +287,14 @@ void loop() {
 
         handleKey(key);
     }
+
+    #if SUN_SOFTWARE_MOUSE == true
+      DPRINTLN("Pendig mouse events: " + String(maus.available()));
+        while (maus.available() > 0) {
+            DPRINTLN("Mouse event.");
+            mouseConverter.update(maus.read());
+        }
+    #endif
 }
 
 void handleKey(uint8_t key) {
