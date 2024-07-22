@@ -106,7 +106,7 @@ static const uint16_t sun2usb[128] = {
 /*  0x2D    =               */  USB_F13, // USB_MUTE use powertoys to do the work of remapping to the command
 /*  0x2E    /               */  USB_KPSLASH,
 /*  0x2F    *               */  USB_KPASTERISK,
-/*  0x30    Power           */  USB_POWER,
+/*  0x30    Power           */  USB_F16, // USB_POWER,
 /*  0x31    Front           */  CODE_OR_MACRO(USB_FRONT, MACRO_FRONT),
 /*  0x32    Del_.           */  USB_KPDOT,
 /*  0x33    Copy            */  CODE_OR_MACRO(USB_COPY, MACRO_COPY),
